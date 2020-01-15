@@ -87,11 +87,13 @@ The Heroku Platform uses the container model to run and scale the app. The conta
 
 **Front end**
 
-The front end REACT segment of the app will be deployed on Netlify. Netlify is a popular and extremely easy to use deployment service for front end applications. REACT with all its complexity all in all is actually really only a static site upon deployment.
+The front end REACT segment of the app will be deployed on Netlify. Netlify is a popular and extremely easy to use deployment service for front end applications. REACT with all its complexity all in all is actually really only a static site upon deployment. This makes Netlify perfect for this purpose.
 
 **Database**
 
+MongoDB Atlas is a fully-managed cloud database developed by the same people that build MongoDB. Atlas handles all the complexity of deploying, managing, and healing your deployments on the cloud service provider of your choice.
 
+---
 
 ## Data flow diagram
 
