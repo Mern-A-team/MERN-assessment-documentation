@@ -35,32 +35,15 @@ Lastly, the MacArthur museum wants the option to allow an outside researcher to 
 
 In the second sprint, our Trello board was updated to include the ability for all users (Admin, Volunteers, and Guests) to download images from the application. It was also discovered that the ability to search and browse image galleries/ categories for Administrators and Volunteers. This was amended. 
 
+---
+
 ## Tech Stack
 
-This section of the documentation will cover the tech stack being used for the Archivise application. Included below are a Data FLow Diagram and an application architecture diagram to aid in the explanation of the data flow and structure of the application from a technical perspective.
-
-**Application Architectural Diagram**
-
-<img src="./docs/architecture-final.png">
-
-The diagram above heavily depicts a MERN stack application. This is because it is indeed a MERN stack project. In the image above there are also some clients mentioned that are doing the work of connecting the front and back end of the application, as well as to the database and the cloud AWS Bucket. Below is a description of what each section of the application is doing.
-
-Essentially the client will interact with the REACT app through their browser. React can do a fair bit on its own when no data needs to be persisted. It can use the components internal states which can be controlled with client-side functions and code to make an interactive UI for the user.
-
-Once data is required whether it be for rendering to the screen or for use by a search parameter or any time that the user needs to interact in a way that manipulates the data that is stored in the database then REACT will use the integrated Axios client to make requests to the backend API of the application. Fetching the data it needs.
-
-When the API receives a request from the front end of the application(REACT/AXIOS) the express web server will look for a defined route that matches the type of request that has been made. I.E POST, GET, PUT. This internal routing will then redirect to the appropriate controller which will do what is required with the data or fetch the required data interacting with the MongoDB Database. This is done using a client called Mongoose which enables us to model and validate the way we want our data stored. Mongoose also provides syntax to make queries to the MongoDB database. A response will then be sent back to the front end.
-
-In our particular application ALthough we will store required information that is needed to interact with the AWS client in MongoDB on the backend. The actual API calls and interaction with AWS will be done from REACT on the front end.
-
-The application will be developed in an MVC architectural pattern. Meaning Model View Control.
-The model references the data modelling of the application and takes care of any business login associated with how the data should be stored. The view is everything visible to the client. The front end of the application that the client interacts with. The Controller is the middle man that takes care of fetching required data from the backend and sending it to the front-end(REACT).
-
-![This is an image of the data flow diagram.](./docs/dfd-final.png)
+This section of the documentation will cover the tech stack being used for the Archivise application. Included below are a Data FLow Diagram and an Application Architecture Diagram to aid in the explanation of the data flow and structure of the application from a technical perspective. Before delving into it each main element of the tech stack is explained below.
 
 #### React
 
-React is a front end javascript framework which is component-based and uses JSX which is a javascript XML language. Basically, it's a javascript embedded Javascript. This allows the use of javascript for conditional rendering, of elements and components, and passing state data to components to control how and when they render and what data is available to them. React is what is used to develop the front end of a MERN stack application.
+React is a front end javascript framework which is component-based and uses JSX which is a javascript XML language. Basically, it's a javascript embedded HTML. This allows the use of javascript for conditional rendering, of elements and components, and passing state data to components to control how and when they render and what data is available to them. React is what is used to develop the front end of a MERN stack application.
 
 #### Node
 
@@ -72,11 +55,44 @@ Express is a minimal and flexible Node.js web application framework that provide
 
 #### MongoDB
 
-MongoDB is a document-based database which is a highly efficient, highly scalable, open-source and free solution to storing data for a web application. The older more traditional Relational databases were not designed to cope with the scale and agility challenges that face modern applications, nor were they built to take advantage of the commodity storage and processing power available today. MongoDB tackles the challenges of the modern agile development environment and provides the data storage for a traditional MERN stack application.
+MongoDB is a document-based database which is a highly efficient, highly scalable, and open-source solution to storing data for a web application. The older more traditional Relational databases were not designed to cope with the scale and agility challenges that face modern applications, nor were they built to take advantage of the commodity storage and processing power available today. MongoDB tackles the challenges of the modern agile development environment and provides the data storage for a traditional MERN stack application.
 
 #### AWS
 
 AWS stands for Amazon Web Services. It is the cloud provider that will be used for physically storing the images. AWS is a large and widely used service and provides the "bucket" storage at a very reasonable price for scalable applications. It it is essential to use a suitable service like this for storing large databases of images to ensure application efficiency. The client will be set up on their own AWS account upon handing over the application to them.
+
+### Axios
+
+Axios is a client used heavily on the front end of the archvise application for making API requests to the back end server. Its responsible for fetching the data that is required for use in the front end returning a response usually containing the data that we need and automatically parsing a JSON response so it is immeditaley available for use. Axios is used in preference to the traditional fetch() syntax used in javascript as it is more effecient and a dryer solution within the code base. Client side support for protecting against XSRF is another out of the box convenience of uising the axios client.
+
+---
+
+**Application Architectural Diagram**
+
+<img src="./docs/architecture-final.png">
+
+---
+
+The diagram above heavily depicts a MERN stack application. This is because it is indeed a MERN stack project. In the image above there are also some clients mentioned that are doing the work of connecting the front and back end of the application, as well as to the database and the cloud AWS Bucket. Below is a description of what each section of the application is doing.
+
+Essentially the client will interact with the REACT app through their browser. React can do a fair bit on its own when no data needs to be persisted. It can use the components internal states which can be controlled with client-side functions and code to make an interactive UI for the user.
+
+Once data is required whether it be for rendering to the screen or for use by a search parameter or any time that the user needs to interact in a way that manipulates the data that is stored in the database then REACT will use the integrated Axios client to make requests to the backend API of the application. Fetching the data it needs.
+
+When the API receives a request from the front end of the application(REACT/AXIOS) the express web server will look for a defined route that matches the type of request that has been made. I.E POST, GET, PUT. This internal routing will then redirect to the appropriate controller which will do what is required with the data or fetch the required data interacting with the MongoDB Database. This is done using a client called Mongoose which enables us to model and validate the way we want our data stored. Mongoose also provides syntax to make queries to the MongoDB database and provides a configured connection to the mongoDB database. A response will then be sent back to the front end.
+
+In our particular application we will store information that is needed to interact with the AWS client in MongoDB on the backend. The actual API calls and interaction with AWS will be done from REACT on the front end.
+
+The application will be developed in an MVC architectural pattern. Meaning Model View Control.
+The model references the data modelling of the application and takes care of any business logic associated with how the data should be stored. The view is everything visible to the client. The front end of the application that the client interacts with. The Controller is the middle man that takes care of fetching required data from the backend and sending it to the front-end(REACT).
+
+The DFD below encapsulates the general flow of data from user interaction with the application.
+
+---
+
+![This is an image of the data flow diagram.](./docs/dfd-final.png)
+
+---
 
 ### Deployment
 
@@ -90,17 +106,17 @@ The Heroku Platform uses the container model to run and scale the app. The conta
 
 **Front end**
 
-The front end REACT segment of the app will be deployed on Netlify. Netlify is a popular and extremely easy to use deployment service for front end applications. REACT with all its complexity all in all is only a static site upon deployment. This makes Netlify perfect for this purpose.
+The front end REACT segment of the app will be deployed on Netlify. Netlify is a popular and extremely easy to use deployment service for front end web applications. REACT with all of its complexity is only a static site upon deployment. This makes Netlify perfect for this purpose.
 
 **Database**
 
-MongoDB Atlas is a fully-managed cloud database developed by the same people that build MongoDB. Atlas handles all the complexity of deploying, managing, and healing your deployments on the cloud service provider of your choice.
----
+MongoDB Atlas is a fully-managed cloud database developed by the same people that build MongoDB. Atlas handles all the complexity of deploying and managing your deployments on the cloud service.
 
-## Data flow diagram
+---
 
 ## Wireframes
 
+---
 
 ## Project Planning
 
