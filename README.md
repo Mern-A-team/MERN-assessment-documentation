@@ -116,6 +116,8 @@ MongoDB Atlas is a fully-managed cloud database developed by the same people tha
 
 ## Wireframes
 
+To save space in documentation, click the link here to view all wireframes: [https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes](https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes)
+
 ### Design
 
   The design for this application has been approached in an uncommon way. Typically most applications should follow mobile-first design, to ensure full responsiveness and functionality no matter the view port size. In the case of Archivise, where the audience is a specific group of people, the application will be used almost exclusively in desktop browsers. This means that functionality in a desktop view port size takes priority over the mobile sizes. Because of this, the application has instead followed desktop-first design practices.
@@ -146,7 +148,7 @@ User flow for the web application is designed with the higher age demographic in
 
 ##### Search Link
 
-- A new page is rendered with a search bar and filters option. 
+- A new page is rendered with a search bar and filters option.
 - The "results gallery" initially shows all photos across all categories.
 - The User can then select a category to add to the filters list, multiple times.
 - After selecting search, the new gallery is rendered with all resulting images.
