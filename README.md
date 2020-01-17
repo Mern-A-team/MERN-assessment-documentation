@@ -1,5 +1,19 @@
+# Archivise for MacArthur Museum of Brisbane
+
 ### Rory Bell, Amber Emeny, Sarah Aldrich
 
+---
+
+### contents
+- Purpouse 
+- Functionality
+- Target Audience
+- User Stories
+- Tech Stack
+- Deployment
+- Third Party Packages
+- Wireframes
+- Project Planning
   
 
 ## Purpose
@@ -22,7 +36,7 @@ Admin will have the access to the full functionality of the app including **addi
 
   
 
-In relation to working with photos the app will utilise a form to submit the photo with the attached metadata and custom fields. This form will have an image upload section, a title for the museum cataloging number, a selection of categories that can be applied to an image, and a text area for free form information about the image to be entered. The fields relating to the categories and the textfield will be tied to specific metadata fields. This will tie the entered information directly to the digital image. Both an Admin and a Volunteer will be able to edit existing data as needed. To do so they will navigate to the image show page which will have an edit button.
+In relation to working with photos the app will utilise a form to submit the photo w/home/roarkz/Code/projects/MERN-assessment-documentation/docs/MMB_13Jan.pngmage, and a text area for free form information about the image to be entered. The fields relating to the categories and the textfield will be tied to specific metadata fields. This will tie the entered information directly to the digital image. Both an Admin and a Volunteer will be able to edit existing data as needed. To do so they will navigate to the image show page which will have an edit button.
 
   
 
@@ -135,7 +149,7 @@ The **Data Flow Diagram / DFD** below encapsulates the general flow of data from
 
 ---
 
-### Deployment
+## Deployment
 
 ####  Back end
 The back end Node/Express server will be deployed on Heroku. Heroku is a well documented, largely popular back end deployment service that is free of charge for basic sized applications. They provide excellent command-line tooling integration for developers for deployment ease.
@@ -152,17 +166,57 @@ MongoDB Atlas is a fully-managed cloud database developed by the same people tha
 
 ---
 
+## Third party packages (npm)
+
+Below I have included a list of third party npm packages that we project to use for development of the project. npm packages are provided as a library of packages, developed by an open source community, that are available for use and widley used to save re-inventing the wheel in our own.
+
+**Front-end**
+- Bootstrap 
+  - This package enables the implementation of the bootsrap styling library in the REACT environment.
+- Emotion
+  - Similar to Bootstrap above this package enables the implementation of the emotion styling library.
+- Json web token
+  - Json Web Token as a package enables us to decode and use data from our JWT token on the front end.
+- Axios 
+  - A more effecient method to make API calls from the front end delivering a cleaner response.
+- Cypress
+  - Integration of the cypress end to end testing framework on the front-end.
+- Node-sass
+  - Enables the uses of Sass/Scss in the REACT environment.
+
+**Back-end**
+- Express
+ - Enables us to require and use the express we framework with Node in the backend.
+- Mongoose
+  - Enables us to require and use mongoose for data modelling and connection to our mongoDB database.
+- Mocha
+  - Configuress the mocha testing framework for use on the back end.
+- Chai
+  - An extended assertion library for the mocha testing framework.
+- Chai-http
+  - The plugin for chai that allows us to test our restful API / HTTP methods for our server.
+- Bcrypt
+  - Takes care opf hashing passwords before storage in the database and error handling surrounding this.
+- dotenv
+  - enables pre-loading of our .env environment variables into process.env for ease of use.
+- cors
+  - A framework for confifuring CORS policy requirments in the server.
+- AWS SDK
+  - Enables us to interact with the AWS services API.
+
+These are the packages that we **know*** will be required to get Archivse to its MVP state. This list may not be exhaustive and we may stuble across other needs as we develop the project.
+---
+
 
 ## Wireframes
 
   
-
 ---
 
 
 ## Project Planning
 
-<img src="./docs/NotesMMB13Jan.pdf>
+<img src="./docs/MMB_13Jan.png">
 
 <img  src="./docs/Sprint_14Jan.png">
 
