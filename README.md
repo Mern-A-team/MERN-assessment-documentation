@@ -4,12 +4,13 @@
 
 ---
 
-### contents
+### Contents
 - Purpouse 
 - Functionality
 - Target Audience
 - User Stories
 - Tech Stack
+- Data Relationships
 - Deployment
 - Third Party Packages
 - Wireframes
@@ -36,7 +37,7 @@ Admin will have the access to the full functionality of the app including **addi
 
   
 
-In relation to working with photos the app will utilise a form to submit the photo w/home/roarkz/Code/projects/MERN-assessment-documentation/docs/MMB_13Jan.pngmage, and a text area for free form information about the image to be entered. The fields relating to the categories and the textfield will be tied to specific metadata fields. This will tie the entered information directly to the digital image. Both an Admin and a Volunteer will be able to edit existing data as needed. To do so they will navigate to the image show page which will have an edit button.
+In relation to working with photos the app will utilise a form to submit the photo with the attached metadata and custom fields. This form will have an image upload section, a title for the museum cataloging number, a selection of categories that can be applied to an image, a selection function for location, and a text area for free form information about the image to be entered. The fields relating to the categories and the textfield will be tied to specific metadata fields. This will tie the entered information directly to the digital image. Both an Admin and a Volunteer will be able to edit existing data as needed. To do so they will navigate to the image show page which will have an edit button.
 
   
 
@@ -146,6 +147,13 @@ The **Data Flow Diagram / DFD** below encapsulates the general flow of data from
 ![This is an image of the data flow diagram.](./docs/dfd-final.png)
 
   
+### Data Relationships
+Archivise will have three main collections of data; User, Photo, and Category. The User will consist of usernames, passwords, and roles. Each piece of data will be required. Username will need to be greater than three characters, password will beed to be six or more characters, meanwhile, to validate role, it will need to be one of three options. 
+
+The photo collection will consist of name, category, physical location, and description. Only name, category, and description will be required. The name, physical location, and descriptions will be strings, whereas, the category will be selected from an the category collection with a default value. The category and description fields will pull from and change fields in the image metadata to ensure the information is tied directly to the photo.
+
+The category collection is made up of name, parent and child. This schema allows nested categories or subcategories. Only the name and parent are required fields as a category may not be a child element. 
+
 
 ---
 
@@ -186,7 +194,7 @@ Below I have included a list of third party npm packages that we project to use 
 
 **Back-end**
 - Express
- - Enables us to require and use the express we framework with Node in the backend.
+- Enables us to require and use the express we framework with Node   in the backend.
 - Mongoose
   - Enables us to require and use mongoose for data modelling and connection to our mongoDB database.
 - Mocha
@@ -204,7 +212,7 @@ Below I have included a list of third party npm packages that we project to use 
 - AWS SDK
   - Enables us to interact with the AWS services API.
 
-These are the packages that we **know*** will be required to get Archivse to its MVP state. This list may not be exhaustive and we may stuble across other needs as we develop the project.
+These are the packages that we **know** will be required to get Archivse to its MVP state. This list may not be exhaustive and we may stuble across other needs as we develop the project.
 ---
 
 
