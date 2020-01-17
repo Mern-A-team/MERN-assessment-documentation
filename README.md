@@ -42,6 +42,7 @@ In relation to working with photos the app will utilise a form to submit the pho
 
 When conducting research, any user will have two means of **searching**. One option will be a text field where a user could type a key word. This would apply to user entered data pertaining to the historical context of an image. However, since humans are prone to error, we need a secondary way to search. This will be done by a selecting menu that contains categories that are determined by the Admin user. This will display "galleries" of all images with the applied tag. If a user was interested in downloading an image, they would be able to click a link that would initiate a full-sized image download from AWS.
 
+
 ## 3. Target Audience
 
 This application is largely designed for internal use by museum staff and volunteers. Using this tool they will be able to sort and manage their images and associated metadata. Currently, the MacArthur Museum digital image assets are stored on a hard drive and only people familiar with the past project can access them. They have been looking for a tool that is able to easily access their collection(s), add to the collection, edit the information present, sort the images, and search for specific topics. We aim to solve this challenge.
@@ -58,9 +59,6 @@ Lastly, the MacArthur museum wants the option to allow an outside researcher to 
 ## 4. User Stories
 
 <img  src="./docs/Archivise-UserStories.png" />
-
-  
-
 <img  src="./docs/Archivise-UserStories-2.png" />
 
 [https://trello.com/b/VxC4LI15/mern-user-stories](https://trello.com/b/VxC4LI15/mern-user-stories)
@@ -70,46 +68,26 @@ Within our Trello board, we abbreviated the user story format to keep it DRY. In
 In the second sprint, our Trello board was updated to include the ability for all users (Admin, Volunteers, and Guests) to download images from the application. It was also discovered that the ability to search and browse image galleries/ categories for Administrators and Volunteers. This was amended.
 
 
-
 ## 5. Tech Stack
-
 
 This section of the documentation will cover the tech stack being used for Archivise. Included below are a Data Flow Diagram and an Application Architecture Diagram. These figures aid in the explanation of the data flow and structure of the application from a technical perspective. Additionally, each element of the tech stack is explained below.
 
-  
-
 ### React
-
 React is a front end JavaScript framework which is component-based and uses JSX (a JavaScript XML language). It's a JavaScript embedded HTML. This allows the use of JavaScript for conditional rendering of elements and components as well as the ability to pass state data to components. This is used to control how and when they render and what data is available to them. React is what is used to develop the front end of a MERN stack application.
 
-  
-
 ### Node
-
 Node.js is a runtime environment which allows javascript to be interpreted outside of a web browser. It is used to program the back end of a MERN stack application. The only shortfall of Node is that it is not designed to interact with HTTP methods. For this reason the Express web framework was developed. When Express is stacked on top, it enables us to build a fully scalable back end web server. Subsequently, when connected with the REACT front end it creates the main structure of a MERN app.
 
-  
-
 ### Express
-
 Express is a minimal and flexible Node.js web application framework. It provides a robust set of features to which enable the rapid development of web applications. It aids heavily in building out the routes and server structure for the web app.
 
-  
-
 ### MongoDB
-
 MongoDB is a document-based database which is a highly efficient, highly scalable, and open-source solution to storing data for a web application. The older more traditional Relational databases were not designed to cope with the scale and agility challenges that face modern applications. Nor were they built to take advantage of the commodity storage and processing power available today. MongoDB tackles the challenges of the modern Agile development environment and provides the data storage for a traditional MERN stack application. In Archivise, MongoDB will be used to store the metadata for the images.
 
-  
-
 ### AWS
-
 AWS stands for Amazon Web Services. It is the cloud provider that will be used for physically storing the images in Archivise. AWS is a large and widely used service that provides "bucket" storage at a very reasonable price for scalable applications. It is essential to use a suitable service like this for storing large databases of images to ensure application efficiency. The client will be set up on their own AWS account upon handing over the application to them.
 
-  
-
 ### Axios
-
 Axios is an HTTP client used heavily on the front end of the Archivise application; specifically for making API requests to the back end server. It's responsible for fetching the data that is required for use in the front end and returning a response. The response usually contains data that we need and automatically parses a JSON response so it is immediately available for use. Axios is used in preference to the traditional fetch() JavaScript syntax, as it is more efficient and more DRY within the code base. Client side support for protecting against XSRF is another convenience of using the Axios client.
 
 
@@ -117,7 +95,6 @@ Axios is an HTTP client used heavily on the front end of the Archivise applicati
 
 Below I have included a list of third party npm packages that we project to use for development of the project. npm packages are provided as a library of packages, developed by an open source community, that are available for use and widely used to save re-inventing the wheel on our own.
 
-  
 
 **Front-end**
 
@@ -145,7 +122,6 @@ Below I have included a list of third party npm packages that we project to use 
 
 	- Enables the uses of Sass/Scss in the REACT environment.
 
-  
 
 **Back-end**
 
@@ -185,7 +161,6 @@ Below I have included a list of third party npm packages that we project to use 
 
 	- Enables us to interact with the AWS services API.
 
-  
 
 These are the packages that we **know** will be required to get Archivise to its MVP state. This list may not be exhaustive and we may stumble across other needs as we develop the project.
 
@@ -194,8 +169,6 @@ These are the packages that we **know** will be required to get Archivise to its
 ## 7. Application Architecture Diagram
 
 <img  src="./docs/architecture-final.png">
-
-
 
 The diagram above depicts the architecture of a MERN stack application. It shows the structure of the tools used to build Archivise. In the image above, there are clients that are doing the work of connecting the front and back end of the application, as well as to the database and the cloud AWS Bucket. Below is a description of what each section of the application is doing.
 
@@ -209,12 +182,10 @@ In Archivise the information that is needed to interact with the AWS client will
 
 The application will be developed in an MVC architectural pattern. Meaning: Model, View, Controller. The Model references the data modelling of the application and takes care of any business logic associated with how the data should be stored. The View is everything visible to the client; the front end of the application that the client interacts with. The Controller is the middle man that takes care of fetching required data from the backend and sending it to the front-end(React).
 
-  
 
-## 8. Deployment 
+## 8. Deployment
 
 #### Back end
-
 The back end Node/Express server will be deployed on Heroku. Heroku is a well documented, largely popular back end deployment service that is free of charge for basic sized applications. They provide excellent command-line tooling integration for developers for deployment ease.
 
 Instead of hardware management, we deploy the app to Heroku, which packages the app’s code and dependencies into containers — lightweight, isolated environments that provide compute, memory, and OS, and filesystem. Containers are typically run on a shared host, yet are completely isolated from each other.
@@ -222,17 +193,12 @@ Instead of hardware management, we deploy the app to Heroku, which packages the 
 The Heroku Platform uses the container model to run and scale the app. The containers used at Heroku are called “dynos.” Dynos are isolated, virtualised Linux containers that are designed to execute code based on a user-specified command. Your app can scale to any specified number of dynos based on its resource demands.
 
 #### Front end
-
 The front end React segment of the app will be deployed on Netlify. Netlify is a popular and extremely easy to use deployment service for front end web applications. React with all of its complexity, is only a static site upon deployment. This makes Netlify perfect for this purpose.
 
 #### Database
-
 MongoDB Atlas is a fully-managed cloud database developed by the same people that build MongoDB. Atlas handles all the complexity of deploying and managing your deployments on the cloud service.
 
- 
 
-
-  
 ## 9. Data Flow Diagram
 
 The **Data Flow Diagram / DFD** below encapsulates the general flow of data from user interaction with the application.
@@ -247,26 +213,26 @@ A data flow diagram (DFD) maps out the flow of information for any process or sy
 There are a range of conventions/systems that can be followed in the creation of DFD. Three of the major conventions used are :
 
 -   Yourdon and Coad
--   Yourdon and DeMarco  
+-   Yourdon and DeMarco
 -   Gane and Sarson
-    
+
 Using any convention’s DFD rules or guidelines, the symbols depict the four components of data flow diagrams.
 
 1.  External entity: an outside system that sends or receives data, communicating with the system being diagrammed. They are the sources and destinations of information entering or leaving the system. They might be an outside organisation or person, a computer system or a business system. They are also known as terminators, sources and sinks or actors. They are typically drawn on the edges of the diagram.
-    
+
 2.  Process: any process that changes the data, producing an output. It might perform computations, or sort data based on logic, or direct the data flow based on business rules. A short label is used to describe the process, such as “Submit payment.”
-    
+
 3.  Data store: files or repositories that hold information for later use, such as a database table or a membership form. Each data store receives a simple label, such as “Orders.”
-    
+
 4.  Data flow: the route that data takes between the external entities, processes and data stores. It portrays the interface between the other components and is shown with arrows, typically labeled with a short data name, like “Billing details.”
 
 The convention followed in the above DFD is the Yourdan and Coad system. In this system, as displayed in the key at the top of our DFD, the symbols are as follows.
- 
+
 External entity = a square
 Process/function = a circle
 Datastore = a long thin rectangle
-Data flow = an arrowed line (as with all conventions). 
- 
+Data flow = an arrowed line (as with all conventions).
+
 
 ## 10. Data Relationships
 
@@ -275,11 +241,10 @@ Archivise will have three main collections of data; User, Photo, and Category. T
 The photo collection will consist of name, category, physical location, and description. Only name, category, and description will be required. The name, physical location, and descriptions will be strings, whereas, the category will be selected from the category collection with a default value. The category and description fields will pull from and change fields in the image metadata to ensure the information is tied directly to the photo.
 
 The category collection is made up of name, parent and child. This schema allows nested categories or subcategories. Only the name and parent are required fields as a category may not be a child element.
-  
-  
+
 
 ## 11. Wireframes
-  
+
   To save space in documentation, click the link here to view all wireframes: [https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes](https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes)
 
 ### Sitemap
@@ -305,7 +270,7 @@ User flow for the web application is designed with the higher age demographic in
 
 #### Add Photo Link
  ==The *add photo* button only visible to Admin and Volunteers==
-     
+
 - A form is rendered to add a new photo.
 - The User chooses the photo to upload, and the details to be associated with it.
 - If any details are invalid or the photo fails to upload, an invalid field error is displayed and a prompt is displayed to alert the User of the error.
@@ -345,24 +310,10 @@ User flow for the web application is designed with the higher age demographic in
 
 ## 12. Project Planning
 
-  
-
 <img  src="./docs/MMB_13Jan.png">
-
-  
-
 <img  src="./docs/Sprint_14Jan.png">
-
-  
-
 <img  src="./docs/Jira_roadmap.png">
-
-  
-
 <img  src="./docs/MorningMeeting_15Jan.png">
-
-  
-  
 
 From the outset our team agreed to implement the Agile methodology and to utilise tools that have proven to be industry favourites; GitHub, Trello, Jira, and Confluence. By creating a team repository on GitHub we could manage our version control as we all contributed to the project. Trello is a tool that we were familiar with. This was easy to set up initially, but we later opted to explore the Atlassian tools of Jira and Confluence. We are using Jira to manage our sprints and tickets. We have synced it with a Google Drive, GitHub, and Confluence. Our Confluence workspace is used for meeting notes and managing rubric requirements. Again, it connects with our Google Drive for ease of access to documents before they are pushed to GitHub.
 
