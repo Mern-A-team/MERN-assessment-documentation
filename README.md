@@ -146,6 +146,13 @@ The **Data Flow Diagram / DFD** below encapsulates the general flow of data from
 ![This is an image of the data flow diagram.](./docs/dfd-final.png)
 
   
+### Data Relationships
+Archivise will have three main collections of data; User, Photo, and Category. The User will consist of usernames, passwords, and roles. Each piece of data will be required. Username will need to be greater than three characters, password will beed to be six or more characters, meanwhile, to validate role, it will need to be one of three options. 
+
+The photo collection will consist of name, category, physical location, and description. Only name, category, and description will be required. The name, physical location, and descriptions will be strings, whereas, the category will be selected from an the category collection with a default value. The category and description fields will pull from and change fields in the image metadata to ensure the information is tied directly to the photo.
+ 
+The category collection is made up of name, parent and child. This schema allows nested categories or subcategories. Only the name and parent are required fields as a category may not be a child element. 
+
 
 ---
 
