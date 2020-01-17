@@ -220,6 +220,10 @@ These are the packages that we **know** will be required to get Archivse to its 
 
 To save space in documentation, click the link here to view all wireframes: [https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes](https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes)
 
+### Sitemap
+
+![Sitemap](https://raw.githubusercontent.com/Mern-A-team/MERN-assessment-documentation/master/docs/ARCHIVISE-3.png)
+
 ### Design
 
   The design for this application has been approached in an uncommon way. Typically most applications should follow mobile-first design, to ensure full responsiveness and functionality no matter the view port size. In the case of Archivise, where the audience is a specific group of people, the application will be used almost exclusively in desktop browsers. This means that functionality in a desktop view port size takes priority over the mobile sizes. Because of this, the application has instead followed desktop-first design practices.
@@ -228,68 +232,56 @@ To save space in documentation, click the link here to view all wireframes: [htt
 ### User Flow
 
 User flow for the web application is designed with the higher age demographic in mind. We wanted to provide a UI that is intuitive, easy to learn, and removes unnecessary clicks. The application is also designed to not allow the user past the landing page without logging in. This is to prevent the general public from accessing the archive.
-![User Flow Diagram](https://raw.githubusercontent.com/Mern-A-team/MERN-assessment-documentation/master/docs/Wireframes/User-Flow%281%29.png)
+![User Flow Diagram](https://raw.githubusercontent.com/Mern-A-team/MERN-assessment-documentation/master/docs/Wireframes/Desktop%20Wireframes/User-Flow(1).png)
 
 #### User Flow Walkthrough
-
-    - The user begins on the landing page where the only action is to click a log in button.
-    - The log in form is rendered, the user can enter their details.
-    - If the details are wrong, an invalid field error is displayed and a prompt is displayed to contact the administrator to reset the password.
-    - Upon success, the user is taken to a dashboard that displays links relevant to the permissions of the User's role.
-    - From this point, the User can access links from the left navbar, or directly from the dashboard.
-
+- The user begins on the landing page where the only action is to click a log in button.
+- The log in form is rendered, the user can enter their details.
+- If the details are wrong, an invalid field error is displayed and a prompt is displayed to contact the administrator to reset the password.
+- Upon success, the user is taken to a dashboard that displays links relevant to the permissions of the User's role.
+- From this point, the User can access links from the left navbar, or directly from the dashboard.
 ##### Add Photo Link
 
  ==The *add photo* button only visible to Admin and Volunteers==
-
-     - A form is rendered to add a new photo.
-     - The User chooses the photo to upload, and the details to be associated with it.
-     - If any details are invalid or the photo fails to upload, an invalid field error is displayed and a prompt is displayed to alert the User of the error.
-     - Upon success, the new photo form is re-rendered and a thumbnail success alert is displayed, along with a link for the User to view the uploaded photo if they wish.
-     - Note: this flow provides an easy process to upload multiple photos in succession.
-
+     
+- A form is rendered to add a new photo.
+- The User chooses the photo to upload, and the details to be associated with it.
+- If any details are invalid or the photo fails to upload, an invalid field error is displayed and a prompt is displayed to alert the User of the error.
+- Upon success, the new photo form is re-rendered and a thumbnail success alert is displayed, along with a link for the User to view the uploaded photo if they wish.
+- Note: this flow provides an easy process to upload multiple photos in succession.
 ##### Search Link
-
 - A new page is rendered with a search bar and filters option.
 - The "results gallery" initially shows all photos across all categories.
 - The User can then select a category to add to the filters list, multiple times.
 - After selecting search, the new gallery is rendered with all resulting images.
 - From here, the user can select a photo to view details of.
-
 ###### View Photo Link
-
-     - A new page is rendered that displays a high-resolution photo and its associated meta data, list of categories it belongs to and its description. 
-     - At the end of the page there is an edit and delete button. 
-     - If the user selects the **delete** button, a confirmation prompt is rendered, upon selecting "YES", the gallery results are displayed, and on selecting "NO" the view is redirected back to the show photo page.
-     * ==The *delete* button only visible to Admin==
-     - If the user selects the **edit** button, a new page with a form similar to the add photo form is rendered. For an invalid input or field, similar prompts to 'add photo' are displayed. Upon success or cancel, the view is redirected back to the show photo page.
-     * ==The *edit* button only visible to Admin and Volunteers==
+- A new page is rendered that displays a high-resolution photo and its associated meta data, list of categories it belongs to and its description. 
+- At the end of the page there is an edit and delete button. 
+- If the user selects the **delete** button, a confirmation prompt is rendered, upon selecting "YES", the gallery results are displayed, and on selecting "NO" the view is redirected back to the show photo page.
+* ==The *delete* button only visible to Admin==
+- If the user selects the **edit** button, a new page with a form similar to the add photo form is rendered. For an invalid input or field, similar prompts to 'add photo' are displayed. Upon success or cancel, the view is redirected back to the show photo page.
+* ==The *edit* button only visible to Admin and Volunteers==
 
 ##### Categories Link
 
-     - A new page is rendered that displays an indented list of all the created categories, each with an edit button beside it. 
-     * ==The *edit* button only visible to Admin==
-     - Here the user can select a category to view and upon click, the search gallery will be rendered with the relevant category filter readily applied. 
-     - The **add category** link will display a prompt that yields a category name field and a drop down to select a parent category which allows the creation of   sub-categories.
-     - ==The *add category* button only visible to Admin==
-     - The **edit** link will render a form that allows the re-naming of a category and the deletion. By selecting **delete**, a confirmation prompt will appear. If the user selects no, they will be sent back to the category index page. If the user selects yes, the category will be removed, as well as all of it's sub-categories. The photos are not deleted, merely moved back into the "undefined" category. The user will then be redirected to an updated category index page.
-     - ==The *edit* and *delete* buttons only visible to Admin==
+- A new page is rendered that displays an indented list of all the created categories, each with an edit button beside it. 
+* ==The *edit* button only visible to Admin==
+- Here the user can select a category to view and upon click, the search gallery will be rendered with the relevant category filter readily applied. 
+- The **add category** link will display a prompt that yields a category name field and a drop down to select a parent category which allows the creation of   sub-categories.
+- ==The *add category* button only visible to Admin==
+- The **edit** link will render a form that allows the re-naming of a category and the deletion. By selecting **delete**, a confirmation prompt will appear. If the user selects no, they will be sent back to the category index page. If the user selects yes, the category will be removed, as well as all of it's sub-categories. The photos are not deleted, merely moved back into the "undefined" category. The user will then be redirected to an updated category index page.
+- ==The *edit* and *delete* buttons only visible to Admin==
 
 ##### Help Link
-
-     - For a select few pages, selecting the help link will display a small window extending from the navbar with relevant instructions for operating the functions on the current page. Under the main heading there will also be a link that takes the user directly to the full website help documentation. However, for pages where specific instructions are not needed, only the link to the full documentation will be displayed.
-
+- For a select few pages, selecting the help link will display a small window extending from the navbar with relevant instructions for operating the functions on the current page. Under the main heading there will also be a link that takes the user directly to the full website help documentation. However, for pages where specific instructions are not needed, only the link to the full documentation will be displayed.
 ##### User Management Link (Admin Only)
-
 ==Only visible to Admin==
+- When the "user management" link is clicked, the admin will be taken to a page that lists each user under the category of their assigned role. 
+- If the Admin clicks the **add user** link, a prompt is displayed with a username field, password field, a select field to assign the user's role, and information about each role and their associated permissions. Upon submission of the add user form, if there are any invalid fields, the appropriate errors are displayed, otherwise the updated User Management page is rendered with a confirmation alert.
+- If the Admin clicks on a specific user, an **edit user** prompt is displays which allows the admin to change the username, password, and role of the user. Upon a successful save, the updated user engagement page is rendered with the appropriate alert. On the edit user prompt, the admin also has the option to remove the user. If **delete** is selected, a confirmation prompt will appear. If the user selects no, they will be sent back to the user management page. If the user selects yes, the user will be removed, and the updated user management page will be rendered.
 
-     - When the "user management" link is clicked, the admin will be taken to a page that lists each user under the category of their assigned role. 
-     - If the Admin clicks the **add user** link, a prompt is displayed with a username field, password field, a select field to assign the user's role, and information about each role and their associated permissions. Upon submission of the add user form, if there are any invalid fields, the appropriate errors are displayed, otherwise the updated User Management page is rendered with a confirmation alert.
-     - If the Admin clicks on a specific user, an **edit user** prompt is displays which allows the admin to change the username, password, and role of the user. Upon a successful save, the updated user engagement page is rendered with the appropriate alert. On the edit user prompt, the admin also has the option to remove the user. If **delete** is selected, a confirmation prompt will appear. If the user selects no, they will be sent back to the user management page. If the user selects yes, the user will be removed, and the updated user management page will be rendered.
-
-  
 ---
-
 
 ## Project Planning
 
