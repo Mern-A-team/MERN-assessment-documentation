@@ -1,5 +1,19 @@
+# Archivise for MacArthur Museum of Brisbane
+
 ### Rory Bell, Amber Emeny, Sarah Aldrich
 
+---
+
+### contents
+- Purpouse 
+- Functionality
+- Target Audience
+- User Stories
+- Tech Stack
+- Deployment
+- Third Party Packages
+- Wireframes
+- Project Planning
   
 
 ## Purpose
@@ -22,7 +36,7 @@ Admin will have the access to the full functionality of the app including **addi
 
   
 
-In relation to working with photos the app will utilise a form to submit the photo with the attached metadata and custom fields. This form will have an image upload section, a title for the museum cataloging number, a selection of categories that can be applied to an image, and a text area for free form information about the image to be entered. The fields relating to the categories and the textfield will be tied to specific metadata fields. This will tie the entered information directly to the digital image. Both an Admin and a Volunteer will be able to edit existing data as needed. To do so they will navigate to the image show page which will have an edit button.
+In relation to working with photos the app will utilise a form to submit the photo w/home/roarkz/Code/projects/MERN-assessment-documentation/docs/MMB_13Jan.pngmage, and a text area for free form information about the image to be entered. The fields relating to the categories and the textfield will be tied to specific metadata fields. This will tie the entered information directly to the digital image. Both an Admin and a Volunteer will be able to edit existing data as needed. To do so they will navigate to the image show page which will have an edit button.
 
   
 
@@ -135,7 +149,7 @@ The **Data Flow Diagram / DFD** below encapsulates the general flow of data from
 
 ---
 
-### Deployment
+## Deployment
 
 ####  Back end
 The back end Node/Express server will be deployed on Heroku. Heroku is a well documented, largely popular back end deployment service that is free of charge for basic sized applications. They provide excellent command-line tooling integration for developers for deployment ease.
@@ -152,6 +166,10 @@ MongoDB Atlas is a fully-managed cloud database developed by the same people tha
 
 ---
 
+## Third party packages (npm)
+
+---
+
 
 ## Wireframes
 
@@ -162,7 +180,7 @@ MongoDB Atlas is a fully-managed cloud database developed by the same people tha
 
 ## Project Planning
 
-<img src="./docs/NotesMMB13Jan.pdf>
+<img src="./docs/MMB_13Jan.png">
 
 <img  src="./docs/Sprint_14Jan.png">
 
