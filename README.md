@@ -1,34 +1,53 @@
-
 # Archivise for MacArthur Museum of Brisbane
 
-  
 
 ### Rory Bell, Amber Emeny, Sarah Aldrich
 
+
+
+[GitHub](https://github.com/Mern-A-team)
+
+[Archivise](https://archivise.netlify.com/)
+
+
+
+
 ---
+
+
 
 ### Contents
 
+
 1. Purpose
+
 2. Functionality
+
 3. Target Audience
+
 4. User Stories
+
 5. Tech Stack
+
 6. Third Party Packages
+
 7. Application Architecture Diagram
+
 8. Deployment
+
 9. Data Flow Diagram
+
 10. Data Relationships
+
 11. Wireframes
+
 12. Project Planning
 
-  
+
 
 ## 1. Purpose
 
-
 The MacArthur Museum of Brisbane is a small museum with a large amount of historic image resources. Frequently, these assets are stored in file cabinets and can be hard to find. Currently, there is no tracking system and only a legacy understanding of gaps in the collection or the presence of duplicates. To enable research and the development of new exhibition/publication material the MacArthur museum has been on the hunt for an easy to use image management system. One challenge that always arose was cost. This MERN application aims to solve these problems and present the museum with a tool to upload, label, categorise and search their images at a negligible cost.
-
 
 ## 2. Functionality
 
@@ -41,6 +60,30 @@ Admin will have access to the full functionality of the app including **adding**
 In relation to working with photos the app will utilise a form to submit the photo with the attached metadata and custom fields. This form will have an image upload section, a title for the museum cataloging number, a selection of categories that can be applied to an image, a selection function for location, and a text area for free form information about the image to be entered. The fields relating to the categories and the textfield will be tied to specific metadata fields. This will tie the entered information directly to the digital image. Both an Admin and a Volunteer will be able to edit existing data as needed. To do so they will navigate to the image show page which will have an edit button.
 
 When conducting research, any user will have two means of **searching**. One option will be a text field where a user could type a key word. This would apply to user entered data pertaining to the historical context of an image. However, since humans are prone to error, we need a secondary way to search. This will be done by a selecting menu that contains categories that are determined by the Admin user. This will display "galleries" of all images with the applied tag. If a user was interested in downloading an image, they would be able to click a link that would initiate a full-sized image download from AWS.
+
+### Future Functionality
+Archivise is currently in its MVP stage; minimum viable product. There are many points that we would like to expand, develop, and improve upon in the future.
+Making use of the metadata was in our original plan. However, we quickly realised that it was both outside of our scope and not necessary for the project. Furthermore, we spoke to industry partners with similar software and were informed that altering and saving the metadata was not a feature of their product. Taking this guidance, we opted to put this feature on the back burner.
+
+In its current form, Archivise is not optimised for image management. While it is functional, the loading of images and such can be slow. This would be a significant issue if and when this application is put into use. The target audience may be inclined to utilise large photo files such as TIFFS. If TIFFS are uploaded using the Archivise site, it would take a significant amount of resources and time to complete simple tasks. We need to refactor how images are uploaded, stored, and displayed on the page. In doing so, we could ensure that low res thumbnails are rendered rather than the full size files that monopolise resources.
+
+In our final user testing session, a few things were noted that need to be changed. While we were able to accomodate many of the changes, some are left for future development. While we were in communication with our client regularly, there were certain points that were not fully flushed out or understood by our final week. Specifically, the manner in which photos would be categorised or labeled using our category tags caused some discussion amongst the volunteers. The client team seemed to have a disconnect in their understanding of how they would utilise the tool.
+
+We recognise the need for additional search fields. At the moment we specifically search the description field that is a part of a photo object. It would be great if we could search the ID number field, the title, etc.
+
+Additionally, there is a need for a download button. Archivise provides a platform to store photos and the information about the photos. However, if you are looking for photos you are likely to want to request a copy. For Volunteer and Admin users, it would be great to have a button to download or print a full sized image. For a Guest user a request form is desired. This would enable the museum to share the catalogue with international researchers and allow the researchers an easy contact method for photo requests.
+
+*Bugs/ Quirks:*
+- Editing a Category:
+When editing a category, unless you change the parent category field, the change will not be applied. There are two ways to circumnavigate this issue: 1. Delete the category and recreate it with the appropriate parent category, or 2. Temporarily rename the category and reassign the parent. Once it is under the right parent you can return the name to the original title.
+- Unassigned:
+While an unassigned category will be added to an empty category array, this does not populate in the drop down menu for searching via category. In fact, 'unassigned' will not appear on the front end at all. This was implemented to be a catch for when a photo is edited, its categories are removed, and it becomes an orphan photo. By searching unassigned, you could then edit the photos and apply the appropriate categories. This will have to be fixed in a future version.
+- Editing a user / password:
+In our initial plan we opted not to edit the password of users to avoid the complications of dealing with a hashed password. If a password is misplaced, the best bet is for the admin to delete that user and create a new user with the appropriate permissions.
+- Order of results and categories:
+Currently, our categories are listed in the order in which they are entered. Ideally, they root categories (those with no parents) would be arranged alphabetically.
+
+In summation there are a few quirks that we would have liked to work out. However, given time constraints we are happy with what we have produced.
 
 
 ## 3. Target Audience
@@ -56,113 +99,114 @@ One level below the admin will be the volunteers who help populate the database.
 Lastly, the MacArthur museum wants the option to allow an outside researcher to log in and view their photos. The researcher will not have the ability to manipulate the content, but only view, search, and filter the images. Their purpose is to learn more about a topic and access the related images. Provided that a researcher will likely only spend a few hours with the application, they need to quickly learn to use it and understand its options.
 
 
+
+
 ## 4. User Stories
 
 <img  src="./docs/Archivise-UserStories.png" />
-<img  src="./docs/Archivise-UserStories-2.png" />
+
+<img  src="./docs/Archivise-UserStories-2.png" /> 
 
 [https://trello.com/b/VxC4LI15/mern-user-stories](https://trello.com/b/VxC4LI15/mern-user-stories)
 
-Within our Trello board, we abbreviated the user story format to keep it DRY. Instead of continually typing out "As a User I want to _ ,  so that I can _", we used the columns to denote different user types and roles: admin, volunteer, and researcher/guest. We then used IWT to denote "I want to" and SIC for "so I can". In each card the content before the slash represents IWT and the statement after represents SIC. 
+Within our Trello board, we abbreviated the user story format to keep it DRY. Instead of continually typing out "As a User I want to _ , so that I can _", we used the columns to denote different user types and roles: admin, volunteer, and researcher/guest. We then used IWT to denote "I want to" and SIC for "so I can". In each card the content before the slash represents IWT and the statement after represents SIC.
 
 In the second sprint, our Trello board was updated to include the ability for all users (Admin, Volunteers, and Guests) to download images from the application. It was also discovered that the ability to search and browse image galleries/ categories for Administrators and Volunteers. This was amended.
+
+### Addressing Responsiveness
+In our conversations with MacArthur Museum staff and volunteers we heard clearly that they were not interested in a mobile option for their product. The application is solely  to be used on a desktop. As a result, though we planned for mobile views, we did not account or develop views for a mobile device. There are specific areas where we can focus on responsiveness in the future development of this project;  specifically, the dashboard.
+
+### User Testing
+The communciation between team members continued throughout the project. We were also able to maintian open communication with the client throughout the project duration. Between proposing the project, checking in with overall design and functionality, we culminated in user testing in the final week of development. We were able to take many of their comments and implement the changes. Those that we were unable to accomodate in the timeframe have been noted above in the future functionality section.
+
+![User Testing](.docs/UserTesting.jpg)
 
 
 ## 5. Tech Stack
 
 This section of the documentation will cover the tech stack being used for Archivise. Included below are a Data Flow Diagram and an Application Architecture Diagram. These figures aid in the explanation of the data flow and structure of the application from a technical perspective. Additionally, each element of the tech stack is explained below.
 
+
 ### React
+
 React is a front end JavaScript framework which is component-based and uses JSX (a JavaScript XML language). It's a JavaScript embedded HTML. This allows the use of JavaScript for conditional rendering of elements and components as well as the ability to pass state data to components. This is used to control how and when they render and what data is available to them. React is what is used to develop the front end of a MERN stack application.
 
+
 ### Node
+
 Node.js is a runtime environment which allows javascript to be interpreted outside of a web browser. It is used to program the back end of a MERN stack application. The only shortfall of Node is that it is not designed to interact with HTTP methods. For this reason the Express web framework was developed. When Express is stacked on top, it enables us to build a fully scalable back end web server. Subsequently, when connected with the REACT front end it creates the main structure of a MERN app.
 
+
 ### Express
+
 Express is a minimal and flexible Node.js web application framework. It provides a robust set of features to which enable the rapid development of web applications. It aids heavily in building out the routes and server structure for the web app.
 
+
 ### MongoDB
+
 MongoDB is a document-based database which is a highly efficient, highly scalable, and open-source solution to storing data for a web application. The older more traditional Relational databases were not designed to cope with the scale and agility challenges that face modern applications. Nor were they built to take advantage of the commodity storage and processing power available today. MongoDB tackles the challenges of the modern Agile development environment and provides the data storage for a traditional MERN stack application. In Archivise, MongoDB will be used to store the metadata for the images.
 
+
 ### AWS
+
 AWS stands for Amazon Web Services. It is the cloud provider that will be used for physically storing the images in Archivise. AWS is a large and widely used service that provides "bucket" storage at a very reasonable price for scalable applications. It is essential to use a suitable service like this for storing large databases of images to ensure application efficiency. The client will be set up on their own AWS account upon handing over the application to them.
 
+
 ### Axios
+
 Axios is an HTTP client used heavily on the front end of the Archivise application; specifically for making API requests to the back end server. It's responsible for fetching the data that is required for use in the front end and returning a response. The response usually contains data that we need and automatically parses a JSON response so it is immediately available for use. Axios is used in preference to the traditional fetch() JavaScript syntax, as it is more efficient and more DRY within the code base. Client side support for protecting against XSRF is another convenience of using the Axios client.
+
 
 
 ## 6. Third party packages (npm)
 
-Below I have included a list of third party npm packages that we project to use for development of the project. npm packages are provided as a library of packages, developed by an open source community, that are available for use and widely used to save re-inventing the wheel on our own.
+Below we have included a list of third party npm packages that we project to use for development of the project. npm packages are provided as a library of packages, developed by an open source community, that are available for use and widely used to save re-inventing the wheel on our own.
 
 
 **Front-end**
 
-- Bootstrap
-
-	- This package enables the implementation of the bootstrap styling library in the React environment.
-
-- Emotion
-
-	- Similar to Bootstrap above this package enables the implementation of the emotion styling library.
-
 - JSON Web Token
-
 	- Json Web Token as a package enables us to decode and use data from our JWT token on the front end.
 
 - Axios
-
 	- A more efficient method to make API calls from the front end delivering a cleaner response.
 
 - Cypress
-
 	- Integration of the cypress end-to-end testing framework on the front-end.
 
 - Node-sass
-
 	- Enables the uses of Sass/Scss in the REACT environment.
+
 
 
 **Back-end**
 
 - Express
-
 	- Enables us to require and use the express web framework with Node in the backend.
 
 - Mongoose
-
 	- Enables us to require and use mongoose for data modelling and connection to our mongoDB database.
 
 - Mocha
-
 	- Configures the mocha testing framework for use on the back end.
 
 - Chai
-
 	- An extended assertion library for the mocha testing framework.
 
 - Chai-http
-
 	- The plugin for chai that allows us to test our restful API / HTTP methods for our server.
 
 - Bcrypt
-
 	- Takes care of hashing passwords before storage in the database and error handling surrounding this.
 
 - dotenv
-
 	- enables pre-loading of our .env environment variables into process.env for ease of use.
 
 - CORS
-
 	- A framework for configuring CORS policy requirements in the server.
 
 - AWS SDK
-
 	- Enables us to interact with the AWS services API.
-
-
-These are the packages that we **know** will be required to get Archivise to its MVP state. This list may not be exhaustive and we may stumble across other needs as we develop the project.
 
 
 
@@ -178,7 +222,9 @@ Once data is required, whether it be for rendering to the screen, used in a sear
 
 When the API receives a request from the front end of the application(React/Axios) the Express web server will look for a defined route that matches the type of request that has been made. For example: POST, GET, & PUT. This internal routing will redirect to the appropriate controller. The controller will then do what is required with the data or fetch the required data interacting with the MongoDB Database. This is done using a client called Mongoose which enables us to model and validate the way we want our data stored. Mongoose also provides syntax to make queries to the MongoDB database and provides a configured connection. A response will then be sent back to the front end.
 
+
 In Archivise the information that is needed to interact with the AWS client will be stored in MongoDB on the backend. The actual API calls and interaction with AWS will be done from React on the front end.
+
 
 The application will be developed in an MVC architectural pattern. Meaning: Model, View, Controller. The Model references the data modelling of the application and takes care of any business logic associated with how the data should be stored. The View is everything visible to the client; the front end of the application that the client interacts with. The Controller is the middle man that takes care of fetching required data from the backend and sending it to the front-end(React).
 
@@ -186,51 +232,72 @@ The application will be developed in an MVC architectural pattern. Meaning: Mode
 ## 8. Deployment
 
 #### Back end
+
 The back end Node/Express server will be deployed on Heroku. Heroku is a well documented, largely popular back end deployment service that is free of charge for basic sized applications. They provide excellent command-line tooling integration for developers for deployment ease.
 
 Instead of hardware management, we deploy the app to Heroku, which packages the app’s code and dependencies into containers — lightweight, isolated environments that provide compute, memory, and OS, and filesystem. Containers are typically run on a shared host, yet are completely isolated from each other.
 
 The Heroku Platform uses the container model to run and scale the app. The containers used at Heroku are called “dynos.” Dynos are isolated, virtualised Linux containers that are designed to execute code based on a user-specified command. Your app can scale to any specified number of dynos based on its resource demands.
 
+
 #### Front end
+
 The front end React segment of the app will be deployed on Netlify. Netlify is a popular and extremely easy to use deployment service for front end web applications. React with all of its complexity, is only a static site upon deployment. This makes Netlify perfect for this purpose.
 
+
 #### Database
+
 MongoDB Atlas is a fully-managed cloud database developed by the same people that build MongoDB. Atlas handles all the complexity of deploying and managing your deployments on the cloud service.
+
 
 
 ## 9. Data Flow Diagram
 
-The **Data Flow Diagram / DFD** below encapsulates the general flow of data from user interaction with the application.
 
+The **Data Flow Diagram / DFD** below encapsulates the general flow of data from user interaction with the application.
 
 ![This is an image of the data flow diagram.](./docs/dfd-final.png)
 
- ### DFD Convention
+
+### DFD Convention
+
 
 A data flow diagram (DFD) maps out the flow of information for any process or system. It uses defined symbols like rectangles, circles and arrows, plus short text labels, to show data inputs, outputs, storage points and the routes between each destination.
 
+
 There are a range of conventions/systems that can be followed in the creation of DFD. Three of the major conventions used are :
 
--   Yourdon and Coad
--   Yourdon and DeMarco
--   Gane and Sarson
+
+- Yourdon and Coad
+
+- Yourdon and DeMarco
+
+- Gane and Sarson
+
 
 Using any convention’s DFD rules or guidelines, the symbols depict the four components of data flow diagrams.
 
-1.  External entity: an outside system that sends or receives data, communicating with the system being diagrammed. They are the sources and destinations of information entering or leaving the system. They might be an outside organisation or person, a computer system or a business system. They are also known as terminators, sources and sinks or actors. They are typically drawn on the edges of the diagram.
 
-2.  Process: any process that changes the data, producing an output. It might perform computations, or sort data based on logic, or direct the data flow based on business rules. A short label is used to describe the process, such as “Submit payment.”
+1. External entity: an outside system that sends or receives data, communicating with the system being diagrammed. They are the sources and destinations of information entering or leaving the system. They might be an outside organisation or person, a computer system or a business system. They are also known as terminators, sources and sinks or actors. They are typically drawn on the edges of the diagram.
 
-3.  Data store: files or repositories that hold information for later use, such as a database table or a membership form. Each data store receives a simple label, such as “Orders.”
 
-4.  Data flow: the route that data takes between the external entities, processes and data stores. It portrays the interface between the other components and is shown with arrows, typically labeled with a short data name, like “Billing details.”
+2. Process: any process that changes the data, producing an output. It might perform computations, or sort data based on logic, or direct the data flow based on business rules. A short label is used to describe the process, such as “Submit payment.”
+
+
+3. Data store: files or repositories that hold information for later use, such as a database table or a membership form. Each data store receives a simple label, such as “Orders.”
+
+  
+
+4. Data flow: the route that data takes between the external entities, processes and data stores. It portrays the interface between the other components and is shown with arrows, typically labeled with a short data name, like “Billing details.”
 
 The convention followed in the above DFD is the Yourdan and Coad system. In this system, as displayed in the key at the top of our DFD, the symbols are as follows.
 
 External entity = a square
+
 Process/function = a circle
+
 Datastore = a long thin rectangle
+
 Data flow = an arrowed line (as with all conventions).
 
 
@@ -245,75 +312,134 @@ The category collection is made up of name, parent and child. This schema allows
 
 ## 11. Wireframes
 
-  To save space in documentation, click the link here to view all wireframes: [https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes](https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes)
+To save space in documentation, click the link here to view all wireframes: [https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes](https://github.com/Mern-A-team/MERN-assessment-documentation/tree/master/docs/Wireframes)
+
 
 ### Sitemap
 
+  
+
 ![Sitemap](https://raw.githubusercontent.com/Mern-A-team/MERN-assessment-documentation/master/docs/ARCHIVISE-3.png)
+
+  
 
 ### Design
 
-  The design for this application has been approached in an uncommon way. Typically most applications should follow mobile-first design, to ensure full responsiveness and functionality no matter the view port size. In the case of Archivise, where the audience is a specific group of people, the application will be used almost exclusively in desktop browsers. This means that functionality in a desktop view port size takes priority over the mobile sizes. Because of this, the application has instead followed desktop-first design practices.
-     Desktop-first design meant choosing a left sidebar navigation over a typical responsive hamburger menu. While it may take up more space even in a collapsed state in mobile, this navigation style increases functionality on larger screens.
+  
+
+The design for this application has been approached in an uncommon way. Typically most applications should follow mobile-first design, to ensure full responsiveness and functionality no matter the view port size. In the case of Archivise, where the audience is a specific group of people, the application will be used almost exclusively in desktop browsers. This means that functionality in a desktop view port size takes priority over the mobile sizes. Because of this, the application has instead followed desktop-first design practices.
+
+Desktop-first design meant choosing a left sidebar navigation over a typical responsive hamburger menu. While it may take up more space even in a collapsed state in mobile, this navigation style increases functionality on larger screens.
 
 ### User Flow
 
 User flow for the web application is designed with the higher age demographic in mind. We wanted to provide a UI that is intuitive, easy to learn, and removes unnecessary clicks. The application is also designed to not allow the user past the landing page without logging in. This is to prevent the general public from accessing the archive.
+
 ![User Flow Diagram](https://raw.githubusercontent.com/Mern-A-team/MERN-assessment-documentation/master/docs/Wireframes/Desktop%20Wireframes/User-Flow(1).png)
 
+
 #### User Flow Walkthrough
+
 - The user begins on the landing page where the only action is to click a log in button.
+
 - The log in form is rendered, the user can enter their details.
+
 - If the details are wrong, an invalid field error is displayed and a prompt is displayed to contact the administrator to reset the password.
+
 - Upon success, the user is taken to a dashboard that displays links relevant to the permissions of the User's role.
+
 - From this point, the User can access links from the left navbar, or directly from the dashboard.
 
+
+
 #### Add Photo Link
- ==The *add photo* button only visible to Admin and Volunteers==
+
+==The *add photo* button only visible to Admin and Volunteers==
+
 
 - A form is rendered to add a new photo.
+
 - The User chooses the photo to upload, and the details to be associated with it.
+
 - If any details are invalid or the photo fails to upload, an invalid field error is displayed and a prompt is displayed to alert the User of the error.
+
 - Upon success, the new photo form is re-rendered and a thumbnail success alert is displayed, along with a link for the User to view the uploaded photo if they wish.
+
 - Note: this flow provides an easy process to upload multiple photos in succession.
+
 #### Search Link
+
 - A new page is rendered with a search bar and filters option.
+
 - The "results gallery" initially shows all photos across all categories.
+
 - The User can then select a category to add to the filters list, multiple times.
+
 - After selecting search, the new gallery is rendered with all resulting images.
+
 - From here, the user can select a photo to view details of.
+
 #### View Photo Link
-- A new page is rendered that displays a high-resolution photo and its associated meta data, list of categories it belongs to and its description. 
-- At the end of the page there is an edit and delete button. 
+
+- A new page is rendered that displays a high-resolution photo and its associated meta data, list of categories it belongs to and its description.
+
+- At the end of the page there is an edit and delete button.
+
 - If the user selects the **delete** button, a confirmation prompt is rendered, upon selecting "YES", the gallery results are displayed, and on selecting "NO" the view is redirected back to the show photo page.
+
 * ==The *delete* button only visible to Admin==
+
 - If the user selects the **edit** button, a new page with a form similar to the add photo form is rendered. For an invalid input or field, similar prompts to 'add photo' are displayed. Upon success or cancel, the view is redirected back to the show photo page.
+
 * ==The *edit* button only visible to Admin and Volunteers==
+
+
 
 #### Categories Link
 
-- A new page is rendered that displays an indented list of all the created categories, each with an edit button beside it. 
+
+
+- A new page is rendered that displays an indented list of all the created categories, each with an edit button beside it.
+
 * ==The *edit* button only visible to Admin==
-- Here the user can select a category to view and upon click, the search gallery will be rendered with the relevant category filter readily applied. 
-- The **add category** link will display a prompt that yields a category name field and a drop down to select a parent category which allows the creation of   sub-categories.
+
+- Here the user can select a category to view and upon click, the search gallery will be rendered with the relevant category filter readily applied.
+
+- The **add category** link will display a prompt that yields a category name field and a drop down to select a parent category which allows the creation of sub-categories.
+
 - ==The *add category* button only visible to Admin==
+
 - The **edit** link will render a form that allows the re-naming of a category and the deletion. By selecting **delete**, a confirmation prompt will appear. If the user selects no, they will be sent back to the category index page. If the user selects yes, the category will be removed, as well as all of it's sub-categories. The photos are not deleted, merely moved back into the "undefined" category. The user will then be redirected to an updated category index page.
+
 - ==The *edit* and *delete* buttons only visible to Admin==
 
 #### Help Link
+
 - For a select few pages, selecting the help link will display a small window extending from the navbar with relevant instructions for operating the functions on the current page. Under the main heading there will also be a link that takes the user directly to the full website help documentation. However, for pages where specific instructions are not needed, only the link to the full documentation will be displayed.
+
 #### User Management Link (Admin Only)
+
 ==Only visible to Admin==
-- When the "user management" link is clicked, the admin will be taken to a page that lists each user under the category of their assigned role. 
+
+- When the "user management" link is clicked, the admin will be taken to a page that lists each user under the category of their assigned role.
+
 - If the Admin clicks the **add user** link, a prompt is displayed with a username field, password field, a select field to assign the user's role, and information about each role and their associated permissions. Upon submission of the add user form, if there are any invalid fields, the appropriate errors are displayed, otherwise the updated User Management page is rendered with a confirmation alert.
+
 - If the Admin clicks on a specific user, an **edit user** prompt is displays which allows the admin to change the username, password, and role of the user. Upon a successful save, the updated user engagement page is rendered with the appropriate alert. On the edit user prompt, the admin also has the option to remove the user. If **delete** is selected, a confirmation prompt will appear. If the user selects no, they will be sent back to the user management page. If the user selects yes, the user will be removed, and the updated user management page will be rendered.
+
+
 
 ## 12. Project Planning
 
+
 <img  src="./docs/MMB_13Jan.png">
+
 <img  src="./docs/Sprint_14Jan.png">
+
 <img  src="./docs/Jira_roadmap.png">
+
 <img  src="./docs/MorningMeeting_15Jan.png">
+
 
 From the outset our team agreed to implement the Agile methodology and to utilise tools that have proven to be industry favourites; GitHub, Trello, Jira, and Confluence. By creating a team repository on GitHub we could manage our version control as we all contributed to the project. Trello is a tool that we were familiar with. This was easy to set up initially, but we later opted to explore the Atlassian tools of Jira and Confluence. We are using Jira to manage our sprints and tickets. We have synced it with a Google Drive, GitHub, and Confluence. Our Confluence workspace is used for meeting notes and managing rubric requirements. Again, it connects with our Google Drive for ease of access to documents before they are pushed to GitHub.
 
@@ -322,3 +448,8 @@ Upon securing our client we set up an initial meeting to discuss the functionali
 Equipped with detail meeting notes, we started day two with our first stand-up and sprint. For the documentation and planning stage of this project, we opted for daily stand-ups and sprints that would keep us on the same page while planning the functionality of the project. We delegate tasks, give each other feedback, and agree about what needs to be achieved each day.
 
 By implementing the Agile at the beginning of the project we were able to establish good communication practices and a collaborative team dynamic. As a result, we are ahead of the timeline on our documentation and are feeling like we have a solid base to begin our coding.
+
+*Summary*
+- *Team work:* Found great value in using Jira & Confluence. These tools allowed us to integrate slack, google drive, and git into our planning processes.
+- *Challenges:* Learning group Git. Transitioning from class components to functional components. Compiling our understanding of MERN
+- *Successes:* Learning and implementing TDD with Mocha. Communication and regular check-ins. Accomplishing sprints with the ability to review and add to tasks. Building a product that is beyond what we thought we were capable of.
