@@ -119,7 +119,8 @@ In our conversations with MacArthur Museum staff and volunteers we heard clearly
 ### User Testing
 The communciation between team members continued throughout the project. We were also able to maintian open communication with the client throughout the project duration. Between proposing the project, checking in with overall design and functionality, we culminated in user testing in the final week of development. We were able to take many of their comments and implement the changes. Those that we were unable to accomodate in the timeframe have been noted above in the future functionality section.
 
-![User Testing](.docs/UserTesting.jpg)
+
+<img src="./docs/UserTesting.jpg" />
 
 
 ## 5. Tech Stack
