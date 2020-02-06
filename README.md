@@ -450,6 +450,8 @@ Equipped with detail meeting notes, we started day two with our first stand-up a
 
 By implementing the Agile at the beginning of the project we were able to establish good communication practices and a collaborative team dynamic. As a result, we are ahead of the timeline on our documentation and are feeling like we have a solid base to begin our coding.
 
+<img src="./docs/StrengthsWeaknesses.png"/>
+
 *Summary*
 - *Team work:* Found great value in using Jira & Confluence. These tools allowed us to integrate slack, google drive, and git into our planning processes.
 - *Challenges:* Learning group Git. Transitioning from class components to functional components. Compiling our understanding of MERN
